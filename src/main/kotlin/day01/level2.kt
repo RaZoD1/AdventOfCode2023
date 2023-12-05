@@ -34,7 +34,7 @@ fun getCalibrationValue2(line: String): Int {
                         break;
                     }
                 }
-                if (startNum == null) start++;
+
             }
 
         }
