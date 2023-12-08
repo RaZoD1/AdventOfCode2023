@@ -38,7 +38,7 @@ class Day07lvl2() : Level("/day07/input.txt") {
         result = lines
             .map { PokerBet2(it.split(" ").first(), it.split(" ").last().toInt()) }
             .sortedWith(compareBy({ it.highestHand() }, { it.hand[0].cardRank() }, { it.hand[1].cardRank() }, { it.hand[2].cardRank() }, { it.hand[3].cardRank() }, { it.hand[4].cardRank() }))
-            .onEach { if(it.hand.contains("J")) println("$it ${it.highestHand()}") }
+            .onEach { println("$it ${it.highestHand()}") }
             .reversed()
             .mapIndexed { index, pokerBet -> (index+1)*pokerBet.bid }
             .sum()
