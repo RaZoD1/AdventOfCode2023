@@ -30,3 +30,22 @@ abstract class Level(val path: String){
 
     abstract fun onResult(): String
 }
+
+data class Vec2(val col: Int, val row: Int){
+    companion object{
+        val LEFT = Vec2(-1, 0)
+        val RIGHT = Vec2(1, 0)
+        val UP = Vec2(0, -1)
+        val DOWN = Vec2(0, 1)
+        val UP_LEFT = Vec2(-1, -1)
+        val UP_RIGHT = Vec2(1, -1)
+        val DOWN_LEFT = Vec2(-1, 1)
+        val DOWN_RIGHT = Vec2(1, 1)
+    }
+    operator fun plus(v: Vec2): Vec2 {
+        return Vec2(this.col + v.col, this.row + v.row)
+    }
+    operator fun minus(v: Vec2): Vec2 {
+        return Vec2(this.col - v.col, this.row - v.row)
+    }
+}

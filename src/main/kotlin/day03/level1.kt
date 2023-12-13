@@ -1,37 +1,19 @@
 package day03
 
+import Vec2
 import getResourceAsText
-
-data class Vec2(val col: Int, val row: Int){
-    companion object{
-        val LEFT = Vec2(-1, 0)
-        val RIGHT = Vec2(1, 0)
-        val UP = Vec2(0, -1)
-        val DOWN = Vec2(0, 1)
-        val UP_LEFT = Vec2(-1, -1)
-        val UP_RIGHT = Vec2(1, -1)
-        val DOWN_LEFT = Vec2(-1, 1)
-        val DOWN_RIGHT = Vec2(1, 1)
-    }
-    operator fun plus(v: Vec2): Vec2 {
-        return Vec2(this.col + v.col, this.row + v.row)
-    }
-    operator fun minus(v: Vec2): Vec2 {
-        return Vec2(this.col - v.col, this.row - v.row)
-    }
-}
 
 fun getPositionsToCheck(pos: Vec2, cols: Int, rows: Int): List<Vec2> {
     val positions = mutableListOf<Vec2>()
 
-    if(pos.col > 0) positions.add(pos+Vec2.LEFT)
-    if(pos.col < cols - 1) positions.add(pos+Vec2.RIGHT)
-    if(pos.row > 0) positions.add(pos+Vec2.UP)
-    if(pos.row < rows - 1) positions.add(pos+Vec2.DOWN)
-    if(pos.col > 0 && pos.row > 0) positions.add(pos+Vec2.UP_LEFT)
-    if(pos.col < cols - 1 && pos.row > 0) positions.add(pos+Vec2.UP_RIGHT)
-    if(pos.col > 0 && pos.row < rows - 1) positions.add(pos+Vec2.DOWN_LEFT)
-    if(pos.col < cols - 1 && pos.row < rows - 1) positions.add(pos+Vec2.DOWN_RIGHT)
+    if(pos.col > 0) positions.add(pos+ Vec2.LEFT)
+    if(pos.col < cols - 1) positions.add(pos+ Vec2.RIGHT)
+    if(pos.row > 0) positions.add(pos+ Vec2.UP)
+    if(pos.row < rows - 1) positions.add(pos+ Vec2.DOWN)
+    if(pos.col > 0 && pos.row > 0) positions.add(pos+ Vec2.UP_LEFT)
+    if(pos.col < cols - 1 && pos.row > 0) positions.add(pos+ Vec2.UP_RIGHT)
+    if(pos.col > 0 && pos.row < rows - 1) positions.add(pos+ Vec2.DOWN_LEFT)
+    if(pos.col < cols - 1 && pos.row < rows - 1) positions.add(pos+ Vec2.DOWN_RIGHT)
 
     return positions
 }

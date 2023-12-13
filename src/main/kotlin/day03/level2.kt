@@ -1,5 +1,6 @@
 package day03
 
+import Vec2
 import getResourceAsText
 
 fun main(){
