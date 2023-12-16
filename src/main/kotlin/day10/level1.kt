@@ -87,13 +87,12 @@ class PipeMap(val grid: List<List<PipePiece>>){
         val start = getStartPos()
         val checked = mutableSetOf<Vec2>()
         val toCheck = mutableListOf<Vec2>()
-        var neighbors = neighborPieces(start)
+        val neighbors = neighborPieces(start)
         var count = 0;
         checked.add(start)
         toCheck.add(neighbors.first())
         while(toCheck.isNotEmpty()){
             val checking = toCheck.removeFirst()
-            println("Checking pos $checking -> ${at(checking).char}")
             checked.add(checking)
             toCheck.addAll(neighborPieces(checking).filterNot { checked.contains(it) })
             count ++;
@@ -126,3 +125,18 @@ class Day10lvl1() : Level("/day10/input.txt") {
 fun main() {
     Day10lvl1().start()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
